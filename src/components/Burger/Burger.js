@@ -3,12 +3,16 @@ import styles from './Burger.module.css'
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient'
 
 const Burger = (props) => {
+  /* move this to an external file : burgerTypes.js for example*/
+  const burgers = [ 
+    {type : 'bread-top'},
+    {type : 'cheese'},
+    {type : 'meat' },
+    {type: 'bread-bottom'}
+  }]
   return (
     <div className={styles.Burger}>
-      <BurgerIngredient type='bread-top' />
-      <BurgerIngredient type='cheese' />
-      <BurgerIngredient type='meat' />
-      <BurgerIngredient type='bread-bottom' />
+    {burgers.map( burger => <BurgerIngredient type={burger.type} />)}
     </div>
   )
 }
